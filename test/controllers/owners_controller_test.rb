@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OwnersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @owner = owners(:one)
+    @owner = owners(:russell)
   end
 
   test "should get index" do

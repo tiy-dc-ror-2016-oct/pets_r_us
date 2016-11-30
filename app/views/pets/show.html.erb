@@ -7,7 +7,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @pet.owner_id %>
+  <%= link_to @pet.owner.full_name, owner_path(@pet.owner.id) %>
 </p>
 
 <p>
@@ -27,8 +27,9 @@
 
 <p>
   <strong>Image url:</strong>
-  <%= @pet.image_url %>
+  <%= image_tag @pet.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= render partial: 'comments/list', locals: {commentable: @pet} %>
+<%= link_to 'Edit', edit_pet_path(@pet) %>
 <%= link_to 'Back', pets_path %>

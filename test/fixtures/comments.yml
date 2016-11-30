@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  body: Never let this guy in the store.
+  commentable: russell
+  commentable_type: Owner
+
+two:
+  user_id: 1
+  body: This creature looks like an ewok.
+  commentable: moose
+  commentable_type: Pet

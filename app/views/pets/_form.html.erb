@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :owner_id %>
-    <%= f.number_field :owner_id %>
+    <%= f.select :owner_id, Owner.all.map { |owner|  [owner.full_name, owner.id] }, include_blank: true %>
   </div>
 
   <div class="field">

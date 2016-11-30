@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  full_name: MyString
+russell:
+  full_name: Russell Osborne
   email: MyString
   blood_type: MyString
   ssn: MyString
   phone_number: MyString
   balance_in_cents: 1
 
-two:
-  full_name: MyString
+allie:
+  full_name: Allie Rowan
   email: MyString
   blood_type: MyString
   ssn: MyString

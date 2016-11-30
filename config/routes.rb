@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get '/comments/new/:commentable_type/:commentable_id', controller: :comments, action: :new, as: :new_comment
+
+  post '/comments/:commentable_type/:commentable_id', controller: :comments, action: :create, as: :comments
 
   resources :owners
   resources :pets
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'welcome#index'
 end

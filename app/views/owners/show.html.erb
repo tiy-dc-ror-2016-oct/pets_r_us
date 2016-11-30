@@ -30,5 +30,11 @@
   <%= @owner.balance_in_cents %>
 </p>
 
+<% @owner.pets.each do |pet| %>
+  <%= link_to pet.name, pet %>
+<% end %>
+
+<%= render partial: 'comments/list', locals: {commentable: @owner} %>
+
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>

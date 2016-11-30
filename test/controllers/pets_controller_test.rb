@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PetsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @pet = pets(:one)
+    @pet = pets(:moose)
   end
 
   test "should get index" do

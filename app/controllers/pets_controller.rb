@@ -3,8 +3,25 @@ class PetsController < ApplicationController
 
   # GET /pets
   def index
-    @pets = Pet.all
+    @per_page = 20.0
+    @pets = Pet.limit(@per_page).offset(@per_page * current_page)
   end
+
+  def total_pages
+    (Pet.count / @per_page).ceil
+  end
+
+  def current_page
+    page = params[:page].to_i
+    @page = if page < total_pages && page > 0
+      page
+    else
+      0
+    end
+  end
+
+  helper_method :total_pages
+  helper_method :current_page
 
   # GET /pets/1
   def show

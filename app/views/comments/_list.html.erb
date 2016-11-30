@@ -1,0 +1,14 @@
+<h3>
+  Comments
+  <small>
+    <%= link_to 'Add Comment', new_comment_path(commentable_type: commentable.class, commentable_id: commentable.id) %>
+  </small>
+</h3>
+<ul>
+<% commentable.comments.each do |comment| %>
+  <li>
+    <%= comment.body %>
+    <small><%= time_ago_in_words(comment.created_at) %></small>
+  </li>
+<% end %>
+</ul>
