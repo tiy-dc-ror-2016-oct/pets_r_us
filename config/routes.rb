@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'sessions/new'
+  resource :session, only: [:new, :create, :destroy]
+  resources  :users, except: [:index]
+
   get '/comments/new/:commentable_type/:commentable_id', controller: :comments, action: :new, as: :new_comment
 
   post '/comments/:commentable_type/:commentable_id', controller: :comments, action: :create, as: :comments
