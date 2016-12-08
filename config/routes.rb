@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get :current
     end
   end
-  
+
   # get 'sessions/new'
   resource :session, only: [:new, :create, :destroy]
   resources  :users, except: [:index]
@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   resources :owners
   resources :pets
   root 'welcome#index'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

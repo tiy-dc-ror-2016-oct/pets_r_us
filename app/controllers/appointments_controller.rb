@@ -8,9 +8,8 @@ class AppointmentsController < ApplicationController
 
   # GET /appointsments/current
   def current
-    @appointments = Appointment.all
-
-    render json: @appointments
+    @appointments = Appointment.all.includes(:pet)
+    render json: @appointments, include: [:pet], except: [:pet_id]
   end
 
   # GET /appointments/1
@@ -31,6 +30,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
+      NotifyOwnerOfAppointment.perform_later(@appointment)
       redirect_to @appointment, notice: 'Appointment was successfully created.'
     else
       render :new
